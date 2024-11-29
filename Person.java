@@ -1,11 +1,11 @@
-public class Person {
+public abstract class Person {
     private String name;
     private int age;
     private String address;
 
     //default constructor
     public Person() {}
-    
+
      // Parameterized constructor
      public Person(String name, int age, String address) {
         this.name = name;
