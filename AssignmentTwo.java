@@ -6,6 +6,7 @@ public class AssignmentTwo {
             AssignmentTwo assignment = new AssignmentTwo();
             assignment.partThree();
             assignment.partFourA();
+            assignment.partFourB();
         }
     
         public void partThree() {
@@ -70,8 +71,30 @@ public class AssignmentTwo {
     
 
     public void partFourB() {
-        // Code part 4B
-    }
+       // Create an operator
+       Employee operator = new Employee("Sam", 35, "Limly Lane", "Ride Operator", 45000);
+
+       // Create a new Ride object
+       Ride Slingshot = new Ride("Slingshot", 6, operator);
+
+       // Add Visitors to the ride history
+       Slingshot.addVisitorToHistory(new Visitor("Zaira", 23, "Kathmandu", "Regular", 201));
+       Slingshot.addVisitorToHistory(new Visitor("Amy", 27, "Milan Chowk", "VIP", 202));
+       Slingshot.addVisitorToHistory(new Visitor("Doreen", 19, "Upper mustang", "Regular", 203));
+       Slingshot.addVisitorToHistory(new Visitor("Zaira", 25, "Suncity", "Regular", 204)); 
+       Slingshot.addVisitorToHistory(new Visitor("Babar", 30, "sunshine coast", "VIP", 205));
+
+       // Print ride history before sorting
+       System.out.println("Ride history before sorting:");
+       Slingshot.printRideHistory();
+
+       // Sort the ride history
+       Slingshot.sortRideHistory();
+
+       // Print ride history after sorting
+       System.out.println("Ride history after sorting:");
+       Slingshot.printRideHistory();
+   } 
 
     public void partFive() {
         // Code part five
