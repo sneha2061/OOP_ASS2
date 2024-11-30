@@ -5,6 +5,7 @@ public class AssignmentTwo {
 
             AssignmentTwo assignment = new AssignmentTwo();
             assignment.partThree();
+            assignment.partFourA();
         }
     
         public void partThree() {
@@ -36,8 +37,37 @@ public class AssignmentTwo {
         }
 
     public void partFourA() {
-        // Code part 4A
-    }
+        // Create an operator
+        Employee operator = new Employee("Jason", 42, "Parkwood", "Ride Operator", 40000);
+
+        // Create a new Ride object
+        Ride rollerCoaster = new Ride("Roller Coaster", 4, operator);
+
+        // Create Visitor objects
+        Visitor visitor1 = new Visitor("Anjana", 25, "Damak", "Regular", 101);
+        Visitor visitor2 = new Visitor("Bandana", 30, "Udayapur", "VIP", 102);
+        Visitor visitor3 = new Visitor("Charishma", 22, "City road", "Regular", 103);
+        Visitor visitor4 = new Visitor("Dina", 28, "Sunsari", "VIP", 104);
+        Visitor visitor5 = new Visitor("Eva", 26, "Morang", "Regular", 105);
+
+        // Add Visitors to the Ride History collection
+        rollerCoaster.addVisitorToHistory(visitor1);
+        rollerCoaster.addVisitorToHistory(visitor2);
+        rollerCoaster.addVisitorToHistory(visitor3);
+        rollerCoaster.addVisitorToHistory(visitor4);
+        rollerCoaster.addVisitorToHistory(visitor5);
+
+        // Check if a specific Visitor is in the collection
+        Visitor visitorToCheck = new Visitor("Binod", 30, "Udayapur", "VIP", 102);
+        rollerCoaster.checkVisitorFromHistory(visitorToCheck);
+
+        // Print the number of Visitors in the collection
+        System.out.println("Number of visitors who have taken the ride: " + rollerCoaster.numberOfVisitors());
+
+        // Print all Visitors in the collection
+        rollerCoaster.printRideHistory();
+    } 
+    
 
     public void partFourB() {
         // Code part 4B

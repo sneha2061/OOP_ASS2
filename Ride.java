@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -78,16 +79,23 @@ public class Ride implements RideInterface {
         }
     }
 
-    // Ride History Management (from Part 2 methods)
+    // Methods for Ride History operations
 
     @Override
     public void addVisitorToHistory(Visitor visitor) {
         rideHistory.add(visitor);
+        System.out.println(visitor.getName() + " has been added to the ride history for " + rideName);
     }
 
     @Override
     public boolean checkVisitorFromHistory(Visitor visitor) {
-        return rideHistory.contains(visitor);
+        boolean exists = rideHistory.contains(visitor);
+        if (exists) {
+            System.out.println(visitor.getName() + " is found in the ride history for " + rideName);
+        } else {
+            System.out.println(visitor.getName() + " is NOT found in the ride history for " + rideName);
+        }
+        return exists;
     }
 
     @Override
@@ -101,7 +109,9 @@ public class Ride implements RideInterface {
             System.out.println("No visitors have taken the ride " + rideName + " yet.");
         } else {
             System.out.println("Visitors who have taken the ride " + rideName + ":");
-            for (Visitor visitor : rideHistory) {
+            Iterator<Visitor> iterator = rideHistory.iterator();
+            while (iterator.hasNext()) {
+                Visitor visitor = iterator.next();
                 System.out.println(visitor.getName());
             }
         }
@@ -115,7 +125,7 @@ public class Ride implements RideInterface {
 
         while (!waitingLine.isEmpty() && riders < capacity) {
             Visitor currentVisitor = waitingLine.poll();
-            rideHistory.add(currentVisitor);
+            addVisitorToHistory(currentVisitor); // Add visitor to history
             System.out.println(currentVisitor.getName() + " is taking the ride " + rideName);
             riders++;
         }
@@ -125,7 +135,3 @@ public class Ride implements RideInterface {
         }
     }
 }
-
-
-
-
