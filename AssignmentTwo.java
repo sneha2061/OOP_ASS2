@@ -7,6 +7,7 @@ public class AssignmentTwo {
             assignment.partThree();
             assignment.partFourA();
             assignment.partFourB();
+            assignment.partFive();
         }
     
         public void partThree() {
@@ -14,7 +15,7 @@ public class AssignmentTwo {
             Employee operator = new Employee("Emiliano", 30, "Park Street", "Ride Operator", 45000);
     
             // Create a new Ride object
-            Ride ferrisWheel = new Ride("Ferris Wheel", 3, operator);
+            Ride ferrisWheel = new Ride("Ferris Wheel", 3, operator, 3);
     
             // Create Visitor objects
             Visitor visitor1 = new Visitor("Alicia", 25, "Chinatown", "Regular", 1);
@@ -42,7 +43,7 @@ public class AssignmentTwo {
         Employee operator = new Employee("Jason", 42, "Parkwood", "Ride Operator", 40000);
 
         // Create a new Ride object
-        Ride rollerCoaster = new Ride("Roller Coaster", 4, operator);
+        Ride rollerCoaster = new Ride("Roller Coaster", 4, operator, 4);
 
         // Create Visitor objects
         Visitor visitor1 = new Visitor("Anjana", 25, "Damak", "Regular", 101);
@@ -75,7 +76,7 @@ public class AssignmentTwo {
        Employee operator = new Employee("Sam", 35, "Limly Lane", "Ride Operator", 45000);
 
        // Create a new Ride object
-       Ride Slingshot = new Ride("Slingshot", 6, operator);
+       Ride Slingshot = new Ride("Slingshot", 16, operator,6);
 
        // Add Visitors to the ride history
        Slingshot.addVisitorToHistory(new Visitor("Zaira", 23, "Kathmandu", "Regular", 201));
@@ -97,8 +98,39 @@ public class AssignmentTwo {
    } 
 
     public void partFive() {
-        // Code part five
-    }
+     // Create a new Ride object
+     Employee operator = new Employee("Tam", 30, "Lolly Lane", "Ride Operator", 46000); 
+     Ride monsterDragon = new Ride("Monster Dragon", 20, operator, 5); // Max 5 riders per cycle
+ 
+     // Add 10 Visitors to the Queue
+     monsterDragon.addVisitorToQueue(new Visitor("Aarshi", 20, "ferny avenue", "Regular", 101));
+     monsterDragon.addVisitorToQueue(new Visitor("Priyanka", 21, "gothatar", "Regular", 102));
+     monsterDragon.addVisitorToQueue(new Visitor("Atithi", 22, "trickett st", "VIP", 103));
+     monsterDragon.addVisitorToQueue(new Visitor("Anjana", 28, "rocher avenue", "Regular", 104));
+     monsterDragon.addVisitorToQueue(new Visitor("Pritha", 25, "rosy avenue", "VIP", 105));
+     monsterDragon.addVisitorToQueue(new Visitor("Ayesha", 26, "kitchener avenue", "Regular", 106));
+     monsterDragon.addVisitorToQueue(new Visitor("Simana", 22, "boil avenue", "Regular", 107));
+     monsterDragon.addVisitorToQueue(new Visitor("Samridhi", 21, "ferma avenue", "VIP", 108));
+     monsterDragon.addVisitorToQueue(new Visitor("Ankit", 25, "fishy avenue", "Regular", 109));
+     monsterDragon.addVisitorToQueue(new Visitor());
+ 
+     // Print all Visitors in the queue
+     System.out.println("\n--- Visitors in the Queue ---");
+     monsterDragon.printQueue();
+ 
+     // Run one cycle
+     System.out.println("\n--- Running One Cycle ---");
+     monsterDragon.runOneCycle();
+ 
+     // Print all Visitors in the queue after one cycle is run
+     System.out.println("\n--- Visitors in the Queue After One Cycle ---");
+     monsterDragon.printQueue();
+ 
+     // Print all Visitors in the collection (ride history)
+     System.out.println("\n--- Visitors in the Ride History ---");
+     monsterDragon.printRideHistory();
+ }    
+
 
     public void partSix() {
         // Code part six
