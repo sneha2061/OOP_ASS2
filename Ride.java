@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -134,4 +135,17 @@ public class Ride implements RideInterface {
             System.out.println("No visitors were available to ride " + rideName + " this cycle.");
         }
     }
+
+ // Method to sort the ride history
+
+ public void sortRideHistory() {
+    if (rideHistory.isEmpty()) {
+        System.out.println("No visitors in the ride history to sort.");
+        return;
+    }
+
+    Collections.sort(rideHistory, new VisitorComparator());
+    System.out.println("Ride history has been sorted.");
 }
+}
+
