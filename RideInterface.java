@@ -1,6 +1,6 @@
 public interface RideInterface {
     void addVisitorToQueue(Visitor visitor);               // Add visitor to queue
-    void removeVisitorFromQueue();                         // Remove visitor from queue
+    Visitor removeVisitorFromQueue();                         // Remove visitor from queue
     void printQueue();                                     // Print the list of waiting visitors
     void runOneCycle();                                    // Run one ride cycle
     void addVisitorToHistory(Visitor visitor);             // Add visitor to ride history
