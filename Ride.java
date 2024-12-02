@@ -9,9 +9,8 @@ import java.util.Queue;
 
 public class Ride implements RideInterface {
     private String rideName;
-    private int capacity; // Maximum number of visitors per cycle
-    private Employee operator; // Employee assigned to the ride
-    private Queue<Visitor> waitingLine; // Queue for visitors waiting to take the ride
+    private Employee operator;              // Employee assigned to the ride
+    private Queue<Visitor> waitingLine;     // Queue for visitors waiting to take the ride
     private LinkedList<Visitor> rideHistory; // List for visitors who have taken the ride
     private int maxRider;
     private int numofCycles=0;
@@ -23,9 +22,8 @@ public class Ride implements RideInterface {
         }
     
         // Parameterized constructor
-        public Ride(String rideName, int capacity, Employee operator, int maxRider) {
+        public Ride(String rideName, Employee operator, int maxRider) {
             this.rideName = rideName;
-            this.capacity = capacity;
             this.operator = operator;
             this.maxRider = maxRider;
             this.waitingLine = new LinkedList<>();
@@ -39,14 +37,6 @@ public class Ride implements RideInterface {
     
         public void setRideName(String rideName) {
             this.rideName = rideName;
-        }
-    
-        public int getCapacity() {
-            return capacity;
-        }
-    
-        public void setCapacity(int capacity) {
-            this.capacity = capacity;
         }
     
         public Employee getOperator() {
@@ -163,6 +153,9 @@ public class Ride implements RideInterface {
         Collections.sort(rideHistory, new VisitorComparator());
         System.out.println("Ride history has been sorted.");
     }
+
+    //Method to export ride history to a file
+
     public void exportRideHistory(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Visitor visitor : rideHistory) {
@@ -170,29 +163,29 @@ public class Ride implements RideInterface {
                 writer.write(visitorData);
                 writer.newLine();
             }
-    // Iterate through the rideHistory and write to the file
                     System.out.println("Ride history successfully exported to " + filename);
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
         }
     }
+
+    //Method to import the ride history from a file
+
     public void importRideHistory(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Split the line by comma to extract visitor details
+                // Spliting the line by comma to extract visitor details
                 String[] data = line.split(",");
-                if (data.length >= 2) { // Ensure there are enough fields
+                if (data.length >= 2) { 
                     String name = data[0];
                     int age = Integer.parseInt(data[1]);
                     String address = data[2];
                     String ticketType = data[3];
                     int visitCount = Integer.parseInt(data[4]);
 
-
-                    // You can include additional fields if they exist
-                    Visitor visitor = new Visitor(name, age , address, ticketType, visitCount); // Create a new Visitor object
-                addVisitorToHistory(visitor); // Add to the ride history
+                    Visitor visitor = new Visitor(name, age , address, ticketType, visitCount); 
+                addVisitorToHistory(visitor); 
             } else {
                 System.err.println("Invalid data format: " + line);
             }
