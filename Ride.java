@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -160,6 +163,19 @@ public class Ride implements RideInterface {
 
     Collections.sort(rideHistory, new VisitorComparator());
     System.out.println("Ride history has been sorted.");
+}
+public void exportRideHistory(String filename) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+        for (Visitor visitor : rideHistory) {
+            String visitorData = visitor.getName() + "," + visitor.getAge() + "," + visitor.getAddress() + "," + visitor.getTicketType() + "," + visitor.getVisitCount();
+            writer.write(visitorData);
+            writer.newLine();
+        }
+// Iterate through the rideHistory and write to the file
+                System.out.println("Ride history successfully exported to " + filename);
+    } catch (IOException e) {
+        System.err.println("Error writing to file: " + e.getMessage());
+    }
 }
 }
 
