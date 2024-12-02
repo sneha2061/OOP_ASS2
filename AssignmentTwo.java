@@ -9,6 +9,7 @@ public class AssignmentTwo {
             assignment.partFourB();
             assignment.partFive();
             assignment.partSix();
+            assignment.partSeven();
         }
     
         public void partThree() {
@@ -151,7 +152,22 @@ public class AssignmentTwo {
  }  
 
     public void partSeven() {
-        // Code part seven
+            // Create a new Ride object
+            Employee operator = new Employee("Mark", 24, "Glensfield", "Ride Operator", 48000); 
+            Ride Superswing = new Ride("Super Swing", 10, operator, 4);
+        
+        
+            // Import ride history from the previously created file
+            System.out.println("\n--- Importing Ride History from File ---");
+            Superswing.importRideHistory("bumper_cars_history.csv");
+        
+            // Print the number of Visitors in the LinkedList
+            System.out.println("\nNumber of Visitors in Ride History: " + Superswing.numberOfVisitors());
+        
+            // Print all Visitors in the LinkedList to verify the details
+            System.out.println("\n--- Ride History Details ---");
+            Superswing.printRideHistory();
+        }
+           
     }
-}
 
