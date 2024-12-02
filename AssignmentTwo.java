@@ -8,6 +8,7 @@ public class AssignmentTwo {
             assignment.partFourA();
             assignment.partFourB();
             assignment.partFive();
+            assignment.partSix();
         }
     
         public void partThree() {
@@ -133,8 +134,21 @@ public class AssignmentTwo {
 
 
     public void partSix() {
-        // Code part six
-    }
+     // Create a new Ride object
+     Employee operator = new Employee("Sagar", 23, "Ferny ave", "Ride Operator", 40000); 
+     Ride bumperCars = new Ride("Bumper Cars", 10, operator, 6);
+
+     // Add a minimum of 5 Visitors to the Ride's history
+     bumperCars.addVisitorToHistory(new Visitor("Saran", 23, "fern st", "Regular", 101));
+     bumperCars.addVisitorToHistory(new Visitor("Sneha", 20, "kitchener avenue", "Regular", 102));
+     bumperCars.addVisitorToHistory(new Visitor("Manita", 23, "paradise avenue", "VIP", 103));
+     bumperCars.addVisitorToHistory(new Visitor("Sadiksha", 22, "angella avenue", "Regular", 104));
+     bumperCars.addVisitorToHistory(new Visitor("Aarshi", 21, "guttsy avenue", "Regular", 105));
+ 
+     // Export the ride history to a file
+     System.out.println("\n--- Exporting Ride History to File ---");
+     bumperCars.exportRideHistory("bumper_cars_history.csv");
+ }  
 
     public void partSeven() {
         // Code part seven
